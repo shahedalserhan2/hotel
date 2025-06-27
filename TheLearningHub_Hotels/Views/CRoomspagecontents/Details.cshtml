@@ -1,0 +1,59 @@
+﻿@model TheLearningHub_Hotels.Models.CRoomspagecontent
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/Adminlayout.cshtml";
+}
+
+
+<div>
+    <
+    <dl class="row">
+        <dt class = "col-sm-4">
+            @Html.DisplayNameFor(model => model.Projectname)
+        </dt>
+        <dd class = "col-sm-8">
+            @Html.DisplayFor(model => model.Projectname)
+        </dd>
+        <dt class = "col-sm-4">
+            @Html.DisplayNameFor(model => model.Pagename)
+        </dt>
+        <dd class = "col-sm-8">
+            @Html.DisplayFor(model => model.Pagename)
+        </dd>
+        <dt class = "col-sm-4">
+            @Html.DisplayNameFor(model => model.ImagepathTop)
+        </dt>
+        <dd class="col-sm-8">
+            <img src=@Url.Content("~/images/" + Model.ImagepathTop) asp-append-version="true" style="border-radius:40%;" width="100" height="100" />
+        </dd>
+        <dt class = "col-sm-4">
+            @Html.DisplayNameFor(model => model.Footerlocation)
+        </dt>
+        <dd class = "col-sm-8">
+            @Html.DisplayFor(model => model.Footerlocation)
+        </dd>
+        <dt class = "col-sm-4">
+            @Html.DisplayNameFor(model => model.Footerphonenumber)
+        </dt>
+        <dd class = "col-sm-8">
+            @Html.DisplayFor(model => model.Footerphonenumber)
+        </dd>
+        <dt class = "col-sm-4">
+            @Html.DisplayNameFor(model => model.Footeremail)
+        </dt>
+        <dd class = "col-sm-8">
+            @Html.DisplayFor(model => model.Footeremail)
+        </dd>
+        <dt class = "col-sm-4">
+            @Html.DisplayNameFor(model => model.Userlogin)
+        </dt>
+        <dd class = "col-sm-8">
+            @Html.DisplayFor(model => model.Userlogin.Userloginid)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.Roomspagecontentid">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

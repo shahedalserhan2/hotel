@@ -1,0 +1,45 @@
+﻿@model TheLearningHub_Hotels.Models.CHotel
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/Adminlayout.cshtml";
+}
+
+@* <h1>Details</h1> *@
+
+<div>
+    @* <h4>CHotel</h4>
+    <hr /> *@
+    <dl class="row">
+        <dt class = "col-sm-4">
+            @Html.DisplayNameFor(model => model.Hotelname)
+        </dt>
+        <dd class = "col-sm-8">
+            @Html.DisplayFor(model => model.Hotelname)
+        </dd>
+        <dt class = "col-sm-4">
+            @Html.DisplayNameFor(model => model.Location)
+        </dt>
+        <dd class = "col-sm-8">
+            @Html.DisplayFor(model => model.Location)
+        </dd>
+        <dt class = "col-sm-4">
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+        <dd class = "col-sm-8">
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+        <dt class = "col-sm-4">
+            @Html.DisplayNameFor(model => model.Imagepath)
+        </dt>
+        <dd class="col-sm-8">
+            <img src=@Url.Content("~/images/" + Model.Imagepath) asp-append-version="true" style="border-radius:20%;" width="100" height="100" />
+        </dd>
+        <a asp-action="Edit" asp-route-id="@Model?.Hotelid">Edit</a> |
+        <a asp-action="Index">Back to List</a>
+    </dl>
+</div>
+@* <div>
+    <a asp-action="Edit" asp-route-id="@Model?.Hotelid">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div> *@

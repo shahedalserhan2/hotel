@@ -1,0 +1,75 @@
+﻿@model TheLearningHub_Hotels.Models.CTestimonial
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/Adminlayout.cshtml";
+}
+
+
+<div class="row">
+    <div class="col-md-8">
+        <form asp-action="Create" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="TestimonialText" class="control-label"></label>
+                <input asp-for="TestimonialText" class="form-control" />
+                <span asp-validation-for="TestimonialText" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Rating" class="control-label"></label>
+                <input asp-for="Rating" class="form-control" />
+                <span asp-validation-for="Rating" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CreatedAt" class="control-label"></label>
+                <input asp-for="CreatedAt" class="form-control" />
+                <span asp-validation-for="CreatedAt" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="UserId" class="control-label"></label>
+                <select asp-for="UserId" class ="form-control" asp-items="ViewBag.UserId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Hotelid" class="control-label"></label>
+                <select asp-for="Hotelid" class ="form-control" asp-items="ViewBag.Hotelid"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="ACTIONS" class="control-label">Select Action:</label>
+                <div>
+                    <input type="radio" id="approve" name="ACTIONS" value="APPROVE" />
+                    <label for="approve">Approve</label>
+                </div>
+                <div>
+                    <input type="radio" id="reject" name="ACTIONS" value="REJECT" />
+                    <label for="reject">Reject</label>
+                </div>
+                <span asp-validation-for="ACTIONS" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="STATUS" class="control-label">Status:</label>
+                <input asp-for="STATUS" class="form-control" readonly />
+                <span asp-validation-for="STATUS" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+            <div>
+                <a asp-action="Index">Back to List</a>
+            </div>
+        </form>
+    </div>
+</div>
+<script>
+    // Find all radio buttons with the name 'ACTIONS'
+    var actionRadios = document.querySelectorAll('input[name="ACTIONS"]');
+
+    // Add an event listener to each radio button
+    actionRadios.forEach(function (radio) {
+        radio.addEventListener('change', function () {
+            var statusInput = document.querySelector('[name="STATUS"]');
+            statusInput.value = this.value; // Set STATUS to the selected ACTION value
+        });
+    });
+</script>
+

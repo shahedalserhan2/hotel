@@ -1,0 +1,37 @@
+﻿@model TheLearningHub_Hotels.Models.CService
+
+@{
+    ViewData["Title"] = "Delete";
+    Layout = "~/Views/Shared/Adminlayout.cshtml";
+}
+
+
+<div>
+   
+    <dl class="row">
+        <dt class = "col-sm-4">
+            @Html.DisplayNameFor(model => model.Servicename)
+        </dt>
+        <dd class = "col-sm-8">
+            @Html.DisplayFor(model => model.Servicename)
+        </dd>
+        <dt class = "col-sm-4">
+            @Html.DisplayNameFor(model => model.Servicetext)
+        </dt>
+        <dd class = "col-sm-8">
+            @Html.DisplayFor(model => model.Servicetext)
+        </dd>
+        <dt class = "col-sm-4">
+            @Html.DisplayNameFor(model => model.Hotel)
+        </dt>
+        <dd class = "col-sm-8">
+            @Html.DisplayFor(model => model.Hotel.Hotelid)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Serviceid" />
+        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        <a asp-action="Index">Back to List</a>
+    </form>
+</div>

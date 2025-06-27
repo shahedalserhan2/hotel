@@ -1,0 +1,319 @@
+﻿ @model Tuple<IEnumerable<CHotel>, IEnumerable<CTestimonial>, IEnumerable<JoinTable>, IEnumerable<CUserlogin>, IEnumerable<CRoom>, IEnumerable<CService>, IEnumerable<CUser>>
+@{
+    
+    Layout = "~/Views/Shared/Adminlayout.cshtml";
+}
+
+
+
+<!-- partial -->
+<div class="container-fluid page-body-wrapper">
+    <!-- partial:partials/_settings-panel.html -->
+    <div class="theme-setting-wrapper">
+        <div id="settings-trigger"><i class="ti-settings"></i></div>
+        <div id="theme-settings" class="settings-panel">
+            <i class="settings-close ti-close"></i>
+            <p class="settings-heading">SIDEBAR SKINS</p>
+            <div class="sidebar-bg-options selected" id="sidebar-light-theme"><div class="img-ss rounded-circle bg-light border mr-3"></div>Light</div>
+            <div class="sidebar-bg-options" id="sidebar-dark-theme"><div class="img-ss rounded-circle bg-dark border mr-3"></div>Dark</div>
+            <p class="settings-heading mt-2">HEADER SKINS</p>
+            <div class="color-tiles mx-0 px-4">
+                <div class="tiles success"></div>
+                <div class="tiles warning"></div>
+                <div class="tiles danger"></div>
+                <div class="tiles info"></div>
+                <div class="tiles dark"></div>
+                <div class="tiles default"></div>
+            </div>
+        </div>
+    </div>
+ 
+    <!-- partial -->
+    <div class="container-fluid page-body-wrapper">
+    <div class="main-panel">
+        <div class="content-wrapper">
+            <!-- أول صف يحتوي على التحية وعرض التاريخ -->
+            <div class="row">
+                <div class="col-md-12 grid-margin">
+                    <div class="row">
+                        <div class="col-12 col-xl-8 mb-4 mb-xl-0">
+                            <h3 class="font-weight-bold">Welcome Aamir</h3>
+                            <h6 class="font-weight-normal mb-0">All systems are running smoothly! You have <span class="text-primary">3 unread alerts!</span></h6>
+                        </div>
+                        <div class="col-12 col-xl-4">
+                            <div class="justify-content-end d-flex">
+                                <div class="dropdown flex-md-grow-1 flex-xl-grow-0">
+                                    <button class="btn btn-sm btn-light bg-white dropdown-toggle" type="button" id="dropdownMenuDate2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                        <i class="mdi mdi-calendar"></i> Today (10 Jan 2021)
+                                    </button>
+                                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuDate2">
+                                        <a class="dropdown-item" href="#">January - March</a>
+                                        <a class="dropdown-item" href="#">March - June</a>
+                                        <a class="dropdown-item" href="#">June - August</a>
+                                        <a class="dropdown-item" href="#">August - November</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- صف يحتوي على الإحصائيات -->
+            <div class="row">
+                <div class="col-md-6 grid-margin stretch-card">
+                    <div class="card tale-bg">
+                        <div class="card-people mt-auto">
+                            <img src="~/AdminAssest/images/dashboard/people.svg" alt="people">
+                            <div class="weather-info">
+                                <div class="d-flex">
+                                    <div>
+                                        <h2 class="mb-0 font-weight-normal"><i class="icon-sun mr-2"></i>31<sup>C</sup></h2>
+                                    </div>
+                                    <div class="ml-2">
+                                        <h4 class="location font-weight-normal">Bangalore</h4>
+                                        <h6 class="font-weight-normal">India</h6>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- صف يحتوي على الإحصائيات في بطاقات مختلفة -->
+                <div class="col-md-6 grid-margin transparent">
+                    <div class="row">
+                        <div class="col-md-6 mb-4 stretch-card transparent">
+                            <div class="card card-tale">
+                                <div class="card-body">
+                                    <p class="mb-4">Available Room</p>
+                                    <p class="fs-30 mb-2">@ViewData["numberOfRoom"]</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-4 stretch-card transparent">
+                            <div class="card card-dark-blue">
+                                <div class="card-body">
+                                    <p class="mb-4">Number of users</p>
+                                    <p class="fs-30 mb-2">@ViewData["numberOfClients"]</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 mb-4 mb-lg-0 stretch-card transparent">
+                            <div class="card card-light-blue">
+                                <div class="card-body">
+                                    <p class="mb-4">Booked rooms</p>
+                                    <p class="fs-30 mb-2">@ViewData["booked rooms"]</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 stretch-card transparent">
+                            <div class="card card-light-danger">
+                                <div class="card-body">
+                                    <p class="mb-4">Number of Hotel</p>
+                                    <p class="fs-30 mb-2">@ViewData["numberOfHotel"]</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- صف يحتوي على تفاصيل الغرف -->
+            <div class="row">
+                <div class="col-md-12 grid-margin stretch-card">
+                    <div class="card">
+                        <div class="card-body">
+                            <h3 class="text-center mb-4" style="font-size: 2rem; font-weight: bold;">Room Details</h3>
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th>Room Number</th>
+                                        <th>Capacity</th>
+                                        <th>Price Per Night</th>
+                                        <th>Availability</th>
+                                        <th>Hotel</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var room in Model.Item5)
+                                    {
+                                        <tr>
+                                            <td>@room.Roomnumber</td>
+                                            <td>@room.Roomcapacity</td>
+                                            <td>@room.PricePerNight</td>
+                                            <td>@room.Isavailable</td>
+                                            <td>@Model.Item1.FirstOrDefault(h => h.Hotelid == room.Hotelid)?.Hotelname</td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+                <div class="row">
+                    <!-- صف يحتوي على تفاصيل التوصيات -->
+                    <div class="col-md-12 grid-margin stretch-card">
+                        <div class="card">
+                            <div class="card-body">
+                                <h3 class="text-center mb-4" style="font-size: 2rem; font-weight: bold;">Testimonial Details</h3>
+                                <div class="table-responsive">
+                                    <table class="table table-bordered table-striped">
+                                        <thead>
+                                            <tr>
+                                                <th>Testimonial ID</th>
+                                                <th>Text</th>
+                                                <th>Rating</th>
+                                                <th>Created At</th>
+                                                <th>Status</th>
+                                                <th>User ID</th>
+                                                <th>User Name</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @foreach (var testimonial in Model.Item2)
+                                            {
+                                                <tr>
+                                                    <td>@testimonial.Testimonialid</td>
+                                                    <td>@testimonial.TestimonialText</td>
+                                                    <td>@testimonial.Rating</td>
+                                                    <td>@testimonial.CreatedAt?.ToString("yyyy-MM-dd")</td>
+                                                    <td>@testimonial.STATUS</td>
+                                                    <td>@testimonial.UserId</td>
+                                                    <td>@testimonial.User?.Fname @testimonial.User?.Lname</td>
+                                                </tr>
+                                            }
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+               <!-- صف يحتوي على تفاصيل الحجوزات -->
+                    <div class="row">
+                        <div class="col-md-12 grid-margin stretch-card">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h3 class="text-center mb-4" style="font-size: 2rem; font-weight: bold;">Hotel Details</h3>
+                                    <table class="table table-bordered">
+                                        <thead>
+                                            <tr>
+                                                <th>Hotel Name</th>
+                                                <th>Location</th>
+                                                <th>Description</th>
+                                                <th>Image</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @foreach (var hotel in Model.Item1)
+                                            {
+                                                <tr>
+                                                    <td>@hotel.Hotelname</td>
+                                                    <td>@hotel.Location</td>
+                                                    <td>@hotel.Description</td>
+                                                    <td><img src="@Url.Content("~/images/" + hotel.Imagepath)" class="img-fluid" /></td>
+                                                </tr>
+                                            }
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+              <div class="row">
+    <div class="col-md-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h3 class="text-center mb-4" style="font-size: 2rem; font-weight: bold;">Service Details</h3>
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                                                <th>Serviceid</th>
+                                                <th>Servicename</th>
+
+                                                <th>Servicetext</th>
+                                                <th>Hotelid</th>
+                                                
+                        </tr>
+                    </thead>
+                    <tbody>
+                                            @foreach (var services in Model.Item6)
+                        {
+                            <tr>
+                                                    <td>@services.Serviceid</td>
+                                                    <td>@services.Servicetext</td>
+                                                    <td>@services.Servicename</td>
+                                                    <td>@services.Hotelid</td>
+                                                    
+                                                   
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+                    </div><!-- صف يحتوي على تفاصيل المستخدمين -->
+                    <div class="row">
+                        <div class="col-md-12 grid-margin stretch-card">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h3 class="text-center mb-4" style="font-size: 1.5rem; font-weight: bold;">User Details</h3>
+                                    <div class="table-responsive">
+                                        <table class="table table-bordered table-sm">
+                                            <thead>
+                                                <tr>
+                                                    <th style="font-size: 0.9rem;">First Name</th>
+                                                    <th style="font-size: 0.9rem;">Last Name</th>
+                                                    <th style="font-size: 0.9rem;">Image</th>
+                                                    <th style="font-size: 0.9rem;">Phone Number</th>
+                                                    <th style="font-size: 0.9rem;">Email</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                @foreach (var user in Model.Item7)
+                                                {
+                                                    <tr>
+                                                        <td style="font-size: 0.8rem;">@user.Fname</td>
+                                                        <td style="font-size: 0.8rem;">@user.Lname</td>
+                                                        <td>
+                                                            <img src="@Url.Content("~/images/" + user.Imagepath)" class="img-fluid" style="width: 100px; height: auto; object-fit: cover;" />
+                                                        </td>
+                                                        <td style="font-size: 0.8rem;">@user.PhoneNumber</td>
+                                                        <td style="font-size: 0.8rem;">@user.Email</td>
+                                                    </tr>
+                                                }
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                </div>
+            </div>
+        </div>
+      @*   <!-- content-wrapper ends -->
+        <!-- partial:partials/_footer.html -->
+        <footer class="footer">
+            <div class="d-sm-flex justify-content-center justify-content-sm-between">
+                <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Copyright © 2021.  Premium <a href="https://www.bootstrapdash.com/" target="_blank">Bootstrap admin template</a> from BootstrapDash. All rights reserved.</span>
+                <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Hand-crafted & made with <i class="ti-heart text-danger ml-1"></i></span>
+            </div>
+            <div class="d-sm-flex justify-content-center justify-content-sm-between">
+                <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Distributed by <a href="https://www.themewagon.com/" target="_blank">Themewagon</a></span>
+            </div>
+        </footer>
+        <!-- partial -->
+    </div>
+    <!-- main-panel ends -->
+</div> *@
+<!-- page-body-wrapper ends -->

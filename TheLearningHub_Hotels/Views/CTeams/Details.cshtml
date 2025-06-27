@@ -1,0 +1,38 @@
+﻿@model TheLearningHub_Hotels.Models.CTeam
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/Adminlayout.cshtml";
+}
+
+@* <h1>Details</h1> *@
+
+<div>
+    
+    <dl class="row">
+        <dt class = "col-sm-4">
+            @Html.DisplayNameFor(model => model.TeamMembername)
+        </dt>
+        <dd class = "col-sm-8">
+            @Html.DisplayFor(model => model.TeamMembername)
+        </dd>
+        <dt class = "col-sm-4">
+            @Html.DisplayNameFor(model => model.Position)
+        </dt>
+        <dd class = "col-sm-8">
+            @Html.DisplayFor(model => model.Position)
+        </dd>
+        <dt class = "col-sm-4">
+            @Html.DisplayNameFor(model => model.Imagepath)
+        </dt>
+        <dd class="col-sm-8">
+            <img src=@Url.Content("~/images/" + Model.Imagepath) asp-append-version="true" style="border-radius:20%;" width="100" height="100" />
+        </dd>
+    </dl>
+    <a asp-action="Edit" asp-route-id="@Model?.Teamid">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>
+@* <div>
+    <a asp-action="Edit" asp-route-id="@Model?.Teamid">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div> *@

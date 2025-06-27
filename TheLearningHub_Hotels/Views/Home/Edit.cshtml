@@ -1,0 +1,54 @@
+﻿@model TheLearningHub_Hotels.Models.CUser
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_Layout1.cshtml";
+}
+<h1 class="mb-4" style="font-size: 2.5rem;">My Profile</h1>
+<div class="d-flex justify-content-center align-items-center" style="min-height: 100vh; padding-bottom: 50px;">
+    
+    <div class="col-md-6">
+        <form asp-action="Edit" class="bg-light p-4 rounded shadow" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="UserId" />
+
+            <div class="form-group">
+                <label asp-for="Fname" class="control-label"></label>
+                <input asp-for="Fname" class="form-control" />
+                <span asp-validation-for="Fname" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Lname" class="control-label"></label>
+                <input asp-for="Lname" class="form-control" />
+                <span asp-validation-for="Lname" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="PhoneNumber" class="control-label"></label>
+                <input asp-for="PhoneNumber" class="form-control" />
+                <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Email" class="control-label"></label>
+                <input asp-for="Email" class="form-control"  />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="ImageFile" class="control-label"><i class="zmdi zmdi-camera"></i></label>
+                <input type="file" asp-for="ImageFile" class="form-control" />
+                <span asp-validation-for="ImageFile" class="text-danger"></span>
+            </div>
+
+            <div class="form-group text-center">
+                <input type="submit" value="Save" class="btn btn-primary w-50" />
+            </div>
+
+            <div class="text-center">
+                <a asp-action="Index" class="btn btn-secondary w-50">Back to List</a>
+            </div>
+        </form>
+    </div>
+</div>

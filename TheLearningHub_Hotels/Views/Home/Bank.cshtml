@@ -1,0 +1,119 @@
+﻿@model TheLearningHub_Hotels.Models.CBank
+
+@{
+    ViewData["Title"] = "Bank";
+    Layout = "~/Views/Shared/_Layout1.cshtml";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>Credit Card Payment Form</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" type="text/css" href="~/CardAssets/bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="~/CardAssets/font-awesome/css/font-awesome.min.css" />
+
+    <script type="text/javascript" src="~/CardAssets/js/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="~/CardAssets/bootstrap/js/bootstrap.min.js"></script>
+
+    <style>
+        body {
+            background-color: #f5f5f5;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .panel {
+            width: 100%;
+            max-width: 500px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
+
+        .panel-heading {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+            .panel-heading h3 {
+                font-size: 24px;
+                margin-bottom: 10px;
+            }
+
+        .panel-body .form-group label {
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        .form-control {
+            font-size: 16px;
+            padding: 10px;
+            border-radius: 4px;
+        }
+
+        .btn-warning {
+            font-size: 18px;
+            padding: 10px;
+            border-radius: 4px;
+        }
+
+        .cc-img {
+            display: block;
+            margin: 20px auto;
+            max-width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Credit Card Payment Form - START -->
+
+    <div class="container">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3>Payment Details</h3>
+                <img class="cc-img" src="https://www.prepbootstrap.com/Content/images/shared/misc/creditcardicons.png" alt="Credit Card Icons">
+                @* <img class="cc-img" src="~/CardAssest/Images/Images" alt="Credit Card Icons">
+            </div> *@
+            <div class="panel-body">
+                <form asp-action="Bank" method="post">
+                    <div class="form-group">
+                        <label class="control-label">Total Amount Due</label>
+                        <input type="text" class="form-control" value="@ViewBag.TotalPrice" readonly />
+                        <!-- Hidden field to pass the total price -->
+                        <input type="hidden" name="TotalPrice" value="@ViewBag.TotalPrice" />
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Creditcardnumber" class="control-label">Card Number</label>
+                        <div class="input-group">
+                            <input asp-for="Creditcardnumber" class="form-control" placeholder="Valid Card Number" />
+                            <span class="input-group-addon"><span class="fa fa-credit-card"></span></span>
+                        </div>
+                        <span asp-validation-for="Creditcardnumber" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label>Expiry Date</label>
+                        <input type="date" class="form-control" name="Creditcardexp" value="@((ViewBag.BankDetails as TheLearningHub_Hotels.Models.CBank)?.Creditcardexp?.ToString("yyyy-MM-dd"))" placeholder="Expiry Date" required />
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-warning btn-lg btn-block">Process Payment</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Credit Card Payment Form - END -->
+
+</body>
+</html>

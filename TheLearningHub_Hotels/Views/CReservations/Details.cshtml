@@ -1,0 +1,54 @@
+﻿@model TheLearningHub_Hotels.Models.CReservation
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/Adminlayout.cshtml";
+}
+@* 
+<h1>Details</h1> *@
+
+<div>
+    @* <h4>CReservation</h4>
+    <hr /> *@
+    <dl class="row">
+        <dt class = "col-sm-4">
+            @Html.DisplayNameFor(model => model.CheckInDate)
+        </dt>
+        <dd class = "col-sm-8">
+            @Html.DisplayFor(model => model.CheckInDate)
+        </dd>
+        <dt class = "col-sm-4">
+            @Html.DisplayNameFor(model => model.CheckOutDate)
+        </dt>
+        <dd class = "col-sm-8">
+            @Html.DisplayFor(model => model.CheckOutDate)
+        </dd>
+        <dt class = "col-sm-4">
+            @Html.DisplayNameFor(model => model.Toltalprice)
+        </dt>
+        <dd class = "col-sm-8">
+            @Html.DisplayFor(model => model.Toltalprice)
+        </dd>
+        <dt class = "col-sm-4">
+            @Html.DisplayNameFor(model => model.Invoicepdf)
+        </dt>
+        <dd class = "col-sm-8">
+            @Html.DisplayFor(model => model.Invoicepdf)
+        </dd>
+        <dt class = "col-sm-4">
+            @Html.DisplayNameFor(model => model.Room)
+        </dt>
+        <dd class = "col-sm-8">
+            @Html.DisplayFor(model => model.Room.Roomid)
+        </dd>
+        <dt class = "col-sm-4">
+            @Html.DisplayNameFor(model => model.User)
+        </dt>
+        <dd class = "col-sm-8">
+            @Html.DisplayFor(model => model.User.UserId)
+        </dd>
+    </dl>
+    <a asp-action="Edit" asp-route-id="@Model?.Reservationsid">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>
+

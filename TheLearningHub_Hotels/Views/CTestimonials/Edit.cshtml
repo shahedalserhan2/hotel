@@ -1,0 +1,67 @@
+﻿@model TheLearningHub_Hotels.Models.CTestimonial
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/Adminlayout.cshtml";
+}
+
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Testimonialid" />
+            <div class="form-group">
+                <label asp-for="TestimonialText" class="control-label"></label>
+                <input asp-for="TestimonialText" class="form-control" />
+                <span asp-validation-for="TestimonialText" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Rating" class="control-label"></label>
+                <input asp-for="Rating" class="form-control" />
+                <span asp-validation-for="Rating" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CreatedAt" class="control-label"></label>
+                <input asp-for="CreatedAt" class="form-control" />
+                <span asp-validation-for="CreatedAt" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="UserId" class="control-label"></label>
+                <select asp-for="UserId" class="form-control" asp-items="ViewBag.UserId"></select>
+                <span asp-validation-for="UserId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Hotelid" class="control-label"></label>
+                <select asp-for="Hotelid" class="form-control" asp-items="ViewBag.Hotelid"></select>
+                <span asp-validation-for="Hotelid" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ACTIONS" class="control-label">Select Action:</label>
+                <div>
+                    <input type="radio" id="approve" name="ACTIONS" value="APPROVE" />
+                    <label for="approve">Approve</label>
+                </div>
+                <div>
+                    <input type="radio" id="reject" name="ACTIONS" value="REJECT" />
+                    <label for="reject">Reject</label>
+                </div>
+                <span asp-validation-for="ACTIONS" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="STATUS" class="control-label">Status:</label>
+                <input asp-for="STATUS" class="form-control" readonly />
+                <span asp-validation-for="STATUS" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

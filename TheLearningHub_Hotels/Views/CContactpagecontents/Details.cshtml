@@ -1,0 +1,78 @@
+﻿@model TheLearningHub_Hotels.Models.CContactpagecontent
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/Adminlayout.cshtml";
+}
+
+@* <h1>Details</h1> *@
+
+<div>
+    @* <h4>CContactpagecontent</h4>
+    <hr /> *@
+    <dl class="row">
+        <dt class = "col-sm-4">
+            @Html.DisplayNameFor(model => model.Projectname)
+        </dt>
+        <dd class = "col-sm-8">
+            @Html.DisplayFor(model => model.Projectname)
+        </dd>
+        <dt class = "col-sm-4">
+            @Html.DisplayNameFor(model => model.Pagename)
+        </dt>
+        <dd class = "col-sm-8">
+            @Html.DisplayFor(model => model.Pagename)
+        </dd>
+        <dt class = "col-sm-4">
+            @Html.DisplayNameFor(model => model.ImagepathTop)
+        </dt>
+        <dd class = "col-sm-8">
+            @Html.DisplayFor(model => model.ImagepathTop)
+        </dd>
+        <dt class = "col-sm-4">
+            @Html.DisplayNameFor(model => model.Bookingemail)
+        </dt>
+        <dd class = "col-sm-8">
+            @Html.DisplayFor(model => model.Bookingemail)
+        </dd>
+        <dt class = "col-sm-4">
+            @Html.DisplayNameFor(model => model.Generalemail)
+        </dt>
+        <dd class = "col-sm-8">
+            @Html.DisplayFor(model => model.Generalemail)
+        </dd>
+        <dt class = "col-sm-4">
+            @Html.DisplayNameFor(model => model.Technicalemail)
+        </dt>
+        <dd class = "col-sm-8">
+            @Html.DisplayFor(model => model.Technicalemail)
+        </dd>
+        <dt class = "col-sm-4">
+            @Html.DisplayNameFor(model => model.Footerlocation)
+        </dt>
+        <dd class = "col-sm-8">
+            @Html.DisplayFor(model => model.Footerlocation)
+        </dd>
+        <dt class = "col-sm-4">
+            @Html.DisplayNameFor(model => model.Footerphonenumber)
+        </dt>
+        <dd class = "col-sm-8">
+            @Html.DisplayFor(model => model.Footerphonenumber)
+        </dd>
+        <dt class = "col-sm-4">
+            @Html.DisplayNameFor(model => model.Footeremail)
+        </dt>
+        <dd class = "col-sm-8">
+            @Html.DisplayFor(model => model.Footeremail)
+        </dd>
+        <dt class = "col-sm-4">
+            @Html.DisplayNameFor(model => model.Userlogin)
+        </dt>
+        <dd class = "col-sm-8">
+            @Html.DisplayFor(model => model.Userlogin.Userloginid)
+        </dd>
+    </dl>
+    <a asp-action="Edit" asp-route-id="@Model?.Contactpagecontentid">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>
+
